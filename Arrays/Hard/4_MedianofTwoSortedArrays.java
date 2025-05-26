@@ -135,3 +135,44 @@ class Solution {
         return 0; // If the code reaches here, the input arrays were not sorted.
     }
 }
+
+// Solution 4 (More readable solution)
+
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int A = nums1.length;
+        int B = nums2.length;
+
+        if (A > B) {
+            return findMedianSortedArrays(nums2, nums1);
+        }
+
+        int l = 0, r = A;
+        int total = A + B;
+        int half = (total + 1) / 2;
+
+        while (l <= r) {
+            int i = (l + r) / 2;
+            int j = half - i;
+
+            int ALeft = (i == 0) ? Integer.MIN_VALUE : nums1[i - 1];
+            int ARight = (i == A) ? Integer.MAX_VALUE : nums1[i];
+            int BLeft = (j == 0) ? Integer.MIN_VALUE : nums2[j - 1];
+            int BRight = (j == B) ? Integer.MAX_VALUE : nums2[j];
+
+            if (ALeft <= BRight && BLeft <= ARight) {
+                if (total % 2 == 0) {
+                    return (Math.max(ALeft, BLeft) + Math.min(ARight, BRight)) / 2.0;
+                } else {
+                    return Math.max(ALeft, BLeft);
+                }
+            } else if (ALeft > BRight) {
+                r = i - 1;
+            } else {
+                l = i + 1;
+            }
+        }
+
+        return 0.0; // Should not reach here
+    }
+}
