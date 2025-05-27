@@ -1,12 +1,13 @@
 /**
- * Problem: 4. Median of Two Sorted Arrays
- * Difficulty: Hard
- * Link: https://leetcode.com/problems/median-of-two-sorted-arrays/
+ * Problem: 15. 3Sum
+ * Difficulty: Medium
+ * Link: https://leetcode.com/problems/3sum/
  *
  * Description:
- * Given two sorted arrays nums1 and nums2 of size m and n respectively, return
- * the median of the two sorted arrays.
- * The overall run time complexity should be O(log (m+n)).
+ * Given an integer array nums, return all the triplets [nums[i], nums[j],
+ * nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] +
+ * nums[k] == 0.
+ * Notice that the solution set must not contain duplicate triplets.
  *
  * Example 1:
  * 
@@ -33,9 +34,6 @@
  * Explanation: The only possible triplet sums up to 0.
  *
  * 
- * Constraints:
- * nums1.length == m
- * nums2.length == n
  */
 
 class Solution {
